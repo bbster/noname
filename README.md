@@ -34,3 +34,13 @@ GCP(사용해볼 예정)
 - refactor : 코드 리펙토링
 - test : 테스트 코드, 리펙토링 테스트 코드 추가
 - chore : 빌드 업무 수정, 패키지 매니저 수정
+- ex
+```text
+Feat: "회원 가입 기능 구현"
+
+SMS, 이메일 중복확인 API 개발
+
+Resolves: #123
+Ref: #456
+Related to: #48, #45
+```
