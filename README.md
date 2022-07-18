@@ -24,7 +24,7 @@ GCP(사용해볼 예정)
 - not yet
 ---
 ### Scrapy
-- not yet
+- pip install scrapy
 ---
 ### Conventional
 - feat : 새로운 기능 추가
@@ -43,3 +43,4 @@ Resolves: #123
 Ref: #456
 Related to: #48, #45
 ```
+---
