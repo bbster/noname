@@ -8,13 +8,6 @@
 from itemadapter import ItemAdapter
 
 
-class QuotesPipeline:
+class QuoteLoginSpiderPipeline:
     def process_item(self, item, spider):
-        if item['h1_tag']:
-            item['h1_tag'] = item['h1_tag'][0].upper()
-
-        if item['tags']:
-            for i in range(len(item['tags'])):
-                item['tags'][i] = item['tags'][i].upper()
-
         return item
