@@ -1,5 +1,7 @@
 from scrapy.http import Request
 from scrapy import Spider
+import os
+import glob
 
 def product_info(response, value):
     return response.xpath('//th[text()="'+ value +'"]/following-sibling::td/text()').extract_first()
@@ -8,7 +10,11 @@ def product_info(response, value):
 class BooksSpider(Spider):
     name = 'books'
     allowed_domains = ['books.toscrape.com']
-    start_urls = ['http://books.toscrape.com']
+    # start_urls = ['http://books.toscrape.com']
+
+    def __init__(self, category):
+        self.start_urls = [category]
+        pass
 
     def parse(self, response):
         books = response.xpath('//h3/a/@href').extract()
@@ -56,3 +62,7 @@ class BooksSpider(Spider):
             'availability': availability,
             'number_of_reviews': number_of_reviews,
         }
+
+    def close(self, reason):
+        csv_file = max(glob.iglob('*.csv'), key=os.path.getctime)
+        os.rename(csv_file, 'foobar.csv')
