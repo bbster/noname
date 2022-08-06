@@ -64,6 +64,7 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'scrapy.pipelines.images.ImagesPipeline': 1,
+   'books_crawler.pipelines.BooksCrawlerPipeline': 2,
 }
 IMAGES_STORE = 'C:/Project/noname/spider/books_crawler/image_dir'
 # Enable and configure the AutoThrottle extension (disabled by default)

@@ -32,6 +32,7 @@ class BooksSpider(Spider):
 
     def parse_book(self, response):
         item_loader = ItemLoader(item=BooksCrawlerItem(), response=response)
+
         title = response.css('h1::text').extract_first()
         price = response.xpath('//*[@class="price_color"]/text()').extract_first()
 
