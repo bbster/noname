@@ -1,4 +1,4 @@
-# Scrapy settings for books_crawler project
+# Scrapy settings for classcentral_spider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'books_crawler'
+BOT_NAME = 'classcentral_spider'
 
-SPIDER_MODULES = ['books_crawler.spiders']
-NEWSPIDER_MODULE = 'books_crawler.spiders'
+SPIDER_MODULES = ['classcentral_spider.spiders']
+NEWSPIDER_MODULE = 'classcentral_spider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'books_crawler (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'books_crawler.middlewares.BooksCrawlerSpiderMiddleware': 543,
+#    'classcentral_spider.middlewares.ClasscentralSpiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'books_crawler.middlewares.BooksCrawlerDownloaderMiddleware': 543,
+#    'classcentral_spider.middlewares.ClasscentralSpiderDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -62,17 +62,10 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   # 'scrapy.pipelines.images.ImagesPipeline': 1,
-   # 'books_crawler.pipelines.BooksCrawlerPipeline': 2,
-   'books_crawler.pipelines.MongoDBPipeline': 300,
-}
-MONGODB_SERVER = 'localhost'
-MONGODB_PORT = 27017
-MONGODB_DB = 'books'
-MONGODB_COLLECTION = 'products'
+#ITEM_PIPELINES = {
+#    'classcentral_spider.pipelines.ClasscentralSpiderPipeline': 300,
+#}
 
-IMAGES_STORE = 'C:/project/noname/spider/books_crawler/image_dir'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
