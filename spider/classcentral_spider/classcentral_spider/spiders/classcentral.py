@@ -26,11 +26,9 @@ class ClasscentralSpider(Spider):
         subject_name = response.xpath('//h1/text()').extract_first()
         cources = response.xpath('//li[@itemtype="http://schema.org/Event"]')
 
-        for i in range(len(cources)):
-
-            cource_name = cources[i].xpath('//*[@itemprop="name"]/text()').extract()[i]
-            # cource_name = cource.xpath('//*[@class="color-charcoal course-name"]/h2/text()').extract()
-            cource_url = cources[i].xpath('//*[@class="color-charcoal course-name"]/@href').extract()[i]
+        for cource in cources:
+            cource_name = cource.xpath('.//*[@itemprop="name"]/text()').extract_first()
+            cource_url = cource.xpath('.//*[@class="color-charcoal course-name"]/@href').extract_first()
             absolute_cource_url = response.urljoin(cource_url)
 
             yield {
@@ -39,7 +37,7 @@ class ClasscentralSpider(Spider):
                 'absolute_cour_url': absolute_cource_url
             }
 
-        next_page = cources[0].xpath('//link[@rel="next"]/@href').extract_first()
+        next_page = cource.xpath('//link[@rel="next"]/@href').extract_first()
         if next_page:
             absolute_next_page = response.urljoin(next_page)
             yield Request(absolute_next_page, callback=self.parse_subject)
