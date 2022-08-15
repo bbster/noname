@@ -53,3 +53,9 @@ import re
 
 # t = eval("max([1, 2, 3, 4])")
 # print(t)
+
+a = [5,4,3,2,1]
+
+for i,x in enumerate(a):
+    print(f"i:{i}")
+    print(f"x:{x}")
