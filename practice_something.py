@@ -59,3 +59,15 @@ a = [5,4,3,2,1]
 for i,x in enumerate(a):
     print(f"i:{i}")
     print(f"x:{x}")
+
+def number_generator():
+    yield 0
+    yield 1
+    yield 3
+
+for i in number_generator():
+    print(i)
+
+g = number_generator()
+print(dir(g))
+print(dir(range))

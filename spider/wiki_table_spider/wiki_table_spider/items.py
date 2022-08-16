@@ -9,4 +9,12 @@ import scrapy
 class WikiTableSpiderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    rank = scrapy.Field()
+    city = scrapy.Field()
+    state = scrapy.Field()
+    estimate_2021 = scrapy.Field()
+    census_2020 = scrapy.Field()
+    change = scrapy.Field()
+    location = scrapy.Field()
+    city_url = scrapy.Field()
+    result_url = scrapy.Field()

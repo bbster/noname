@@ -14,12 +14,14 @@ class ClasscentralSpider(Spider):
         if self.subject:
             subject_url = response.xpath('//a[contains(@title, "'+self.subject +'")]/@href').extract_first()
             absolute_subject_url = response.urljoin(subject_url)
+            breakpoint()
             yield Request(absolute_subject_url, callback=self.parse_subject)
         else:
             self.log("Scraping all subjects.")
             subjects = response.xpath('//*[@class="border-box align-middle color-charcoal hover-no-underline"]/@href').extract()
             for subject in subjects:
                 absolute_subject_url = response.urljoin(subject)
+                breakpoint()
                 yield Request(absolute_subject_url, callback=self.parse_subject)
 
     def parse_subject(self, response):

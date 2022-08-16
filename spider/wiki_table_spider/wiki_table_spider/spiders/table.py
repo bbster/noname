@@ -19,7 +19,7 @@ class TableSpider(scrapy.Spider):
             location = tr.xpath('.//td[10]//span[@class="geo-dec"]//text()').extract_first()
             city_url = tr.xpath('.//td[1]//a/@href').extract_first()
             result_url = response.urljoin(city_url)
-
+            breakpoint()
             yield {
                     "rank": rank,
                     "city": city,
@@ -30,4 +30,3 @@ class TableSpider(scrapy.Spider):
                     "location": location,
                     "state_url": result_url,
             }
-

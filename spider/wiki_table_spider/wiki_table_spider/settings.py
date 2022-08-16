@@ -66,6 +66,16 @@ ROBOTSTXT_OBEY = False
 #    'wiki_table_spider.pipelines.WikiTableSpiderPipeline': 300,
 #}
 
+ITEM_PIPELINES = {
+   # 'scrapy.pipelines.images.ImagesPipeline': 1,
+   # 'books_crawler.pipelines.BooksCrawlerPipeline': 2,
+   'wiki_table_spider.pipelines.WikiTableSpiderPipeline': 300,
+}
+MONGODB_SERVER = 'localhost'
+MONGODB_PORT = 27017
+MONGODB_DB = 'wiki_table'
+MONGODB_COLLECTION = 'products'
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
