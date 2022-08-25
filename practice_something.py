@@ -54,20 +54,126 @@ import re
 # t = eval("max([1, 2, 3, 4])")
 # print(t)
 
-a = [5,4,3,2,1]
+# a = [5,4,3,2,1]
+#
+# for i,x in enumerate(a):
+#     print(f"i:{i}")
+#     print(f"x:{x}")
+#
+# def number_generator():
+#     yield 0
+#     yield 1
+#     yield 3
+#
+# for i in number_generator():
+#     print(i)
 
-for i,x in enumerate(a):
-    print(f"i:{i}")
-    print(f"x:{x}")
+# g = number_generator()
+# print(dir(g))
+# print(dir(range))
+#
+# class FourCalc:
+#     def __init__(self, first, second):
+#         self.first = first
+#         self.second = second
+#
+#     def add(self):
+#         result = self.first + self.second
+#         return result
+#
+#     def minus(self):
+#         result = self.first - self.second
+#         return result
+#
+# a = FourCalc(4,2)
+#
+# print(a.minus())
 
-def number_generator():
-    yield 0
-    yield 1
-    yield 3
+# call by value / call by reference
 
-for i in number_generator():
-    print(i)
+call_by_value = 10
+call_by_reference = [1,2,3,4]
 
-g = number_generator()
-print(dir(g))
-print(dir(range))
+
+def test_value_id(some_value):
+    print(f"some_value_before: {id(some_value)}")
+    some_value = 5
+    print(f"some_value_after: {id(some_value)}")
+
+
+def test_reference_id(some_reference):
+    print(f"some_reference_before: {id(some_reference)}")
+    some_reference = [5,6,7,8]
+    print(f"some_reference_after: {id(some_reference)}")
+
+# test_value_id(call_by_value)
+# print(f"call_by_value: {id(call_by_value)}")
+# test_reference_id(call_by_reference)
+# print(f"call_by_reference: {id(call_by_reference)}")
+
+#
+# def parameter_func(*args, **kwargs):
+#     # for i in args:
+#     #     print(i)
+#     # for j in kwargs:
+#     #     print(kwargs)
+#     # print(args)
+#     # print(kwargs.get("nothing", default=0))
+#     # print(kwargs.items())
+#     print(kwargs.setdefault("nothing", ))
+#     print(dir(kwargs))
+#
+#
+# parameter_func(4,2,5, name="tester", age=6)
+#
+# li = set()
+# print(type(li))
+
+
+class A():
+    some_attribute = "something"
+    def __init__(self, title):
+        self.title = title
+
+    def show(self):
+        print(self.title)
+
+class B(A):
+
+    def __init__(self, title, something):
+        super().__init__(title)
+        super().some_attribute
+        self.something = something
+        print(something)
+
+a = A("title")
+b = B("title", "Something")
+b.show()
+
+class Car():
+    ud = "운전대 입니다." # 초기 default
+
+    # def __init__(self, door, wheel):
+    #     self.door = door   # api 외부 데이터에 의해 변경될 attribute
+    #     self.wheel = wheel
+
+    @staticmethod
+    def get_instance():
+        a = Car(4,4)
+        return a
+
+class Validation():
+
+    @staticmethod
+    def validate(Car):
+        if Car.ud == "운전대 입니다.":
+            return Car.ud
+        else:
+            print("운전대 아닙니다.")
+
+print(Validation.validate(Car()))
+# a = Car(4,4)
+# a.get_instance()
+# Car.get_instance()
+# print(Car.get_instance())
+# print(a.get_instance())

@@ -2,7 +2,7 @@ import requests
 import random
 
 
-numbers = []
+numbers = set()
 for i in range(950, 9999):
     url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo={}"
     url = url.format(i)
@@ -16,14 +16,15 @@ for i in range(950, 9999):
     print(f"{i}회차 data 받아오는 중")
 
     success_result = format_json.get('returnValue', None)
-    numbers.append(format_json.get('drwtNo1', None))
-    numbers.append(format_json.get('drwtNo2', None))
-    numbers.append(format_json.get('drwtNo3', None))
-    numbers.append(format_json.get('drwtNo4', None))
-    numbers.append(format_json.get('drwtNo5', None))
-    numbers.append(format_json.get('drwtNo6', None))
-    numbers.append(format_json.get('bnusNo', None))
+    numbers.add(format_json.get('drwtNo1', None))
+    numbers.add(format_json.get('drwtNo2', None))
+    numbers.add(format_json.get('drwtNo3', None))
+    numbers.add(format_json.get('drwtNo4', None))
+    numbers.add(format_json.get('drwtNo5', None))
+    numbers.add(format_json.get('drwtNo6', None))
+    numbers.add(format_json.get('bnusNo', None))
 
 for i in range(5):
     random_numbers1 = random.sample(numbers, 6)
+    random_numbers1.sort()
     print(random_numbers1)
